@@ -21,8 +21,11 @@ public class ApplicationUser implements UserDetails{
 	@Column(unique=true)
     private String username;
     private String password;
+    private String email;
 
-    @ManyToMany(fetch=FetchType.EAGER)
+
+
+	@ManyToMany(fetch=FetchType.EAGER)
     @JoinTable(
         name="user_role_junction",
         joinColumns = {@JoinColumn(name="user_id")},
@@ -36,10 +39,11 @@ public class ApplicationUser implements UserDetails{
 	}
 
 
-	public ApplicationUser(Integer userId, String username, String password, Set<Role> authorities) {
+	public ApplicationUser(Integer userId, String username,String email, String password, Set<Role> authorities) {
 		super();
 		this.userId = userId;
 		this.username = username;
+		this.email=email;
 		this.password = password;
 		this.authorities = authorities;
 	}
@@ -105,6 +109,14 @@ public class ApplicationUser implements UserDetails{
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
 		return true;
+	}
+
+	public String getEmail() {
+		return this.email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
     
 }

@@ -1,5 +1,7 @@
 package com.springSecured.AuthenticatedBackend.services;
 
+import com.springSecured.AuthenticatedBackend.dto.RegisterResponse;
+import com.springSecured.AuthenticatedBackend.dto.RegistrationDTO;
 import com.springSecured.AuthenticatedBackend.entities.ApplicationUser;
 import com.springSecured.AuthenticatedBackend.dto.LoginResponseDTO;
 import com.springSecured.AuthenticatedBackend.entities.Role;
@@ -37,31 +39,41 @@ public class AuthenticationService {
     @Autowired
     private TokenService tokenService;
 
-    public ApplicationUser registerUser(String username, String password){
+    public RegisterResponse registerUser(RegistrationDTO body){
 
-        String encodedPassword = passwordEncoder.encode(password);
-        Role userRole = roleRepository.findByAuthority("USER").get();
+        RegisterResponse registerResponses = new RegisterResponse();
 
-        Set<Role> authorities = new HashSet<>();
+        if(userRepository.existsByEmail(body.getEmail())){
+//          //  throw new UserAlreadyExistsException(email + " already exists");
+            registerResponses.setMessage("failed");
 
-        authorities.add(userRole);
+        }
+        else{
+            String encodedPassword = passwordEncoder.encode(body.getPassword());
+            Role userRole = roleRepository.findByAuthority("USER").get();
+            registerResponses.setMessage("ok");
+            Set<Role> authorities = new HashSet<>();
+            authorities.add(userRole);
+            userRepository.save(new ApplicationUser(0, body.getUsername(), body.getEmail(), encodedPassword, authorities));
 
-        return userRepository.save(new ApplicationUser(0, username, encodedPassword, authorities));
+        }
+
+        return registerResponses;
     }
 
-    public LoginResponseDTO loginUser(String username, String password){
+    public LoginResponseDTO loginUser(RegistrationDTO body){
 
         try{
             Authentication auth = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(username, password)
+                new UsernamePasswordAuthenticationToken(body.getEmail(), body.getPassword())
             );
 
-            String token = tokenService.generateJwt(auth);
-
-            return new LoginResponseDTO(userRepository.findByUsername(username).get(), token);
+            String token = tokenService.generateJwt(auth,body.getEmail());
+ //userRepository.findByEmail(body.getEmail()).get(),
+            return new LoginResponseDTO( token);
 
         } catch(AuthenticationException e){
-            return new LoginResponseDTO(null, "");
+            return new LoginResponseDTO("");
         }
     }
 

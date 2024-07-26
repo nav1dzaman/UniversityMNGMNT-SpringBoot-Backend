@@ -1,5 +1,6 @@
 package com.springSecured.AuthenticatedBackend.controllers;
 
+import com.springSecured.AuthenticatedBackend.dto.RegisterResponse;
 import com.springSecured.AuthenticatedBackend.entities.ApplicationUser;
 import com.springSecured.AuthenticatedBackend.dto.LoginResponseDTO;
 import com.springSecured.AuthenticatedBackend.dto.RegistrationDTO;
@@ -17,12 +18,12 @@ public class AuthenticationController {
     private AuthenticationService authenticationService;
 
     @PostMapping("/register")
-    public ApplicationUser registerUser(@RequestBody RegistrationDTO body){
-        return authenticationService.registerUser(body.getUsername(), body.getPassword());
+    public RegisterResponse registerUser(@RequestBody RegistrationDTO body){
+        return authenticationService.registerUser(body);
     }
     
     @PostMapping("/login")
     public LoginResponseDTO loginUser(@RequestBody RegistrationDTO body){
-        return authenticationService.loginUser(body.getUsername(), body.getPassword());
+        return authenticationService.loginUser(body);
     }
 }   
