@@ -1,4 +1,4 @@
-package com.springSecured.AuthenticatedBackend.dto;
+package com.springSecured.AuthenticatedBackend.response;
 
 public class RegisterResponse {
 

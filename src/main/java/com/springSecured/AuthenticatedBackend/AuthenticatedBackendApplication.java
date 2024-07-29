@@ -1,6 +1,6 @@
 package com.springSecured.AuthenticatedBackend;
 
-import com.springSecured.AuthenticatedBackend.entities.ApplicationUser;
+import com.springSecured.AuthenticatedBackend.entities.User;
 import com.springSecured.AuthenticatedBackend.entities.Role;
 import com.springSecured.AuthenticatedBackend.repository.RoleRepository;
 import com.springSecured.AuthenticatedBackend.repository.UserRepository;
@@ -31,7 +31,7 @@ public class AuthenticatedBackendApplication {
 			Set<Role> roles = new HashSet<>();
 			roles.add(adminRole);
 
-			ApplicationUser admin = new ApplicationUser(1, "admin","admin@mail.com", passwordEncode.encode("password"), roles);
+			User admin = new User(1, "admin","admin@mail.com", passwordEncode.encode("password"), roles);
 
 			userRepository.save(admin);
 		};

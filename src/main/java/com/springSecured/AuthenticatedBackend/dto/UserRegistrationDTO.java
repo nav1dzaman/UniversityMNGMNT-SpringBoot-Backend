@@ -1,16 +1,16 @@
 package com.springSecured.AuthenticatedBackend.dto;
 
-public class RegistrationDTO {
+public class UserRegistrationDTO {
     private String username;
     private String email;
     private String password;
 
 
-    public RegistrationDTO(){
+    public UserRegistrationDTO(){
         super();
     }
 
-    public RegistrationDTO(String username,String email, String password){
+    public UserRegistrationDTO(String username, String email, String password){
         super();
         this.username = username;
         this.email=email;

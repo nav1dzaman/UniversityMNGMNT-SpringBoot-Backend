@@ -1,9 +1,9 @@
 package com.springSecured.AuthenticatedBackend.controllers;
 
-import com.springSecured.AuthenticatedBackend.dto.RegisterResponse;
-import com.springSecured.AuthenticatedBackend.entities.ApplicationUser;
-import com.springSecured.AuthenticatedBackend.dto.LoginResponseDTO;
-import com.springSecured.AuthenticatedBackend.dto.RegistrationDTO;
+import com.springSecured.AuthenticatedBackend.dto.LoginDTO;
+import com.springSecured.AuthenticatedBackend.response.RegisterResponse;
+import com.springSecured.AuthenticatedBackend.response.LoginResponse;
+import com.springSecured.AuthenticatedBackend.dto.UserRegistrationDTO;
 import com.springSecured.AuthenticatedBackend.services.AuthenticationService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +18,12 @@ public class AuthenticationController {
     private AuthenticationService authenticationService;
 
     @PostMapping("/register")
-    public RegisterResponse registerUser(@RequestBody RegistrationDTO body){
+    public RegisterResponse registerUser(@RequestBody UserRegistrationDTO body){
         return authenticationService.registerUser(body);
     }
     
     @PostMapping("/login")
-    public LoginResponseDTO loginUser(@RequestBody RegistrationDTO body){
+    public LoginResponse loginUser(@RequestBody LoginDTO body){
         return authenticationService.loginUser(body);
     }
 }   

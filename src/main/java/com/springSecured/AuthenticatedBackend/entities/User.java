@@ -13,7 +13,7 @@ import java.util.Set;
 @Setter
 @Entity
 @Table(name="users")
-public class ApplicationUser implements UserDetails{
+public class User implements UserDetails{
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -33,13 +33,13 @@ public class ApplicationUser implements UserDetails{
     )
     private Set<Role> authorities;
 
-    public ApplicationUser() {
+    public User() {
 		super();
 		authorities = new HashSet<>();
 	}
 
 
-	public ApplicationUser(Integer userId, String username,String email, String password, Set<Role> authorities) {
+	public User(Integer userId, String username, String email, String password, Set<Role> authorities) {
 		super();
 		this.userId = userId;
 		this.username = username;

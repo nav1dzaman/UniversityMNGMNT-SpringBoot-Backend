@@ -1,9 +1,10 @@
 package com.springSecured.AuthenticatedBackend.services;
 
-import com.springSecured.AuthenticatedBackend.dto.RegisterResponse;
-import com.springSecured.AuthenticatedBackend.dto.RegistrationDTO;
-import com.springSecured.AuthenticatedBackend.entities.ApplicationUser;
-import com.springSecured.AuthenticatedBackend.dto.LoginResponseDTO;
+import com.springSecured.AuthenticatedBackend.dto.LoginDTO;
+import com.springSecured.AuthenticatedBackend.response.RegisterResponse;
+import com.springSecured.AuthenticatedBackend.dto.UserRegistrationDTO;
+import com.springSecured.AuthenticatedBackend.entities.User;
+import com.springSecured.AuthenticatedBackend.response.LoginResponse;
 import com.springSecured.AuthenticatedBackend.entities.Role;
 import com.springSecured.AuthenticatedBackend.repository.RoleRepository;
 import com.springSecured.AuthenticatedBackend.repository.UserRepository;
@@ -39,7 +40,7 @@ public class AuthenticationService {
     @Autowired
     private TokenService tokenService;
 
-    public RegisterResponse registerUser(RegistrationDTO body){
+    public RegisterResponse registerUser(UserRegistrationDTO body){
 
         RegisterResponse registerResponses = new RegisterResponse();
 
@@ -54,14 +55,14 @@ public class AuthenticationService {
             registerResponses.setMessage("ok");
             Set<Role> authorities = new HashSet<>();
             authorities.add(userRole);
-            userRepository.save(new ApplicationUser(0, body.getUsername(), body.getEmail(), encodedPassword, authorities));
+            userRepository.save(new User(0, body.getUsername(), body.getEmail(), encodedPassword, authorities));
 
         }
 
         return registerResponses;
     }
 
-    public LoginResponseDTO loginUser(RegistrationDTO body){
+    public LoginResponse loginUser(LoginDTO body){
 
         try{
             Authentication auth = authenticationManager.authenticate(
@@ -70,10 +71,10 @@ public class AuthenticationService {
 
             String token = tokenService.generateJwt(auth,body.getEmail());
  //userRepository.findByEmail(body.getEmail()).get(),
-            return new LoginResponseDTO( token);
+            return new LoginResponse( token);
 
         } catch(AuthenticationException e){
-            return new LoginResponseDTO("");
+            return new LoginResponse("");
         }
     }
 
