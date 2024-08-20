@@ -1,4 +1,4 @@
-package com.springSecured.AuthenticatedBackend.services;
+package com.springSecured.AuthenticatedBackend.services.implt;
 
 
 import com.springSecured.AuthenticatedBackend.entities.Faculty;
@@ -9,15 +9,17 @@ import com.springSecured.AuthenticatedBackend.repository.RoleRepository;
 import com.springSecured.AuthenticatedBackend.repository.UserRepository;
 import com.springSecured.AuthenticatedBackend.request.FacultyRequestDTO;
 import com.springSecured.AuthenticatedBackend.response.RegisterResponse;
+import com.springSecured.AuthenticatedBackend.services.FacultyServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Service
-public class FacultyService {
+public class FacultyService implements FacultyServices {
     @Autowired
     private FacultyRepository facultyRepository;
 
@@ -76,9 +78,12 @@ public class FacultyService {
         return registerResponse;
     }
 
+    @Override
+    public List<Faculty> getAllFaculty() {
+        List<Faculty> allFaculty = facultyRepository.findAll();
 
-
-
+       return allFaculty;
+    }
 
 
 }

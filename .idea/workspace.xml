@@ -5,7 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e003cd2-98fd-43d7-812b-e3edde7124bb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/springSecured/AuthenticatedBackend/controllers/FacultyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/springSecured/AuthenticatedBackend/controllers/FacultyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/springSecured/AuthenticatedBackend/controllers/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/springSecured/AuthenticatedBackend/controllers/StudentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/springSecured/AuthenticatedBackend/entities/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/springSecured/AuthenticatedBackend/entities/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/springSecured/AuthenticatedBackend/repository/StudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/springSecured/AuthenticatedBackend/repository/StudentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/springSecured/AuthenticatedBackend/services/FacultyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/springSecured/AuthenticatedBackend/services/implt/FacultyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/springSecured/AuthenticatedBackend/services/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/springSecured/AuthenticatedBackend/services/implt/StudentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/springSecured/AuthenticatedBackend/services/TokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/springSecured/AuthenticatedBackend/services/TokenService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/springSecured/AuthenticatedBackend/controllers/FacultyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/springSecured/AuthenticatedBackend/controllers/FacultyController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/springSecured/AuthenticatedBackend/controllers/StudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/springSecured/AuthenticatedBackend/controllers/StudentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/springSecured/AuthenticatedBackend/entities/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/springSecured/AuthenticatedBackend/entities/Student.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/springSecured/AuthenticatedBackend/services/FacultyService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/springSecured/AuthenticatedBackend/services/StudentService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/springSecured/AuthenticatedBackend/services/TokenService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/springSecured/AuthenticatedBackend/services/TokenService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +44,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/nav1dzaman/Springboot-backend-authenticated.git&quot;,
+    &quot;url&quot;: &quot;https://github.com/nav1dzaman/UniversityMNGMNT-SpringBoot-Backend.git&quot;,
     &quot;accountId&quot;: &quot;2481b072-4690-47f2-a925-c696270be12e&quot;
   }
 }</component>
@@ -53,18 +66,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.AuthenticatedBackendApplication.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Coding/Springboot/GoribUniversity"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.AuthenticatedBackendApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Coding/Springboot/MEDI SOURCE/Springboot-backend-authenticated&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.springSecured.AuthenticatedBackend.services.implementation" />
       <recent name="com.springSecured.AuthenticatedBackend.response" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">

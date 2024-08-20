@@ -1,4 +1,4 @@
-package com.springSecured.AuthenticatedBackend.services;
+package com.springSecured.AuthenticatedBackend.services.implt;
 
 import com.springSecured.AuthenticatedBackend.entities.Role;
 import com.springSecured.AuthenticatedBackend.entities.Student;
@@ -8,16 +8,19 @@ import com.springSecured.AuthenticatedBackend.repository.StudentRepository;
 import com.springSecured.AuthenticatedBackend.repository.UserRepository;
 import com.springSecured.AuthenticatedBackend.request.StudentRequestDTO;
 import com.springSecured.AuthenticatedBackend.response.RegisterResponse;
+import com.springSecured.AuthenticatedBackend.response.StudentResponse;
+import com.springSecured.AuthenticatedBackend.services.StudentServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import javax.naming.AuthenticationException;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Service
-public class StudentService {
+public class StudentService implements StudentServices {
 
     @Autowired
     private StudentRepository studentRepository;
@@ -30,6 +33,7 @@ public class StudentService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @Override
    public RegisterResponse registerStudent(StudentRequestDTO body){
 
        RegisterResponse registerResponse=new RegisterResponse();
@@ -46,7 +50,7 @@ public class StudentService {
 
                student.setStudent_address(body.getStudent_address());
                student.setStudent_name(body.getStudent_name());
-               student.setStudent_email(body.getStudent_email());
+               student.setStudentemail(body.getStudent_email());
                student.setCgpa(0.0);
                student.setCredit_completed(0.0);
 
@@ -80,6 +84,26 @@ public class StudentService {
        return registerResponse;
     }
 
+    @Override
+    public List<StudentResponse> getAllStudents() {
+
+        List<Student>  allStudents = studentRepository.findAll();
+
+
+        List<StudentResponse> responses = new ArrayList<>();
+        for (Student everyone : allStudents){
+                 StudentResponse response =new StudentResponse();
+                 response.setStudent_id(everyone.getStudent_id());
+                 response.setStudent_name(everyone.getStudent_name());
+                 response.setStudent_email(everyone.getStudentemail());
+                 response.setStudent_address(everyone.getStudent_address());
+                 response.setCgpa(everyone.getCgpa());
+                 response.setCredit_completed(everyone.getCredit_completed());
+                 responses.add(response);
+        }
+ return responses;
+
+    }
 
 
 }
